@@ -1,0 +1,14 @@
+FROM node:latest
+# Add a work directory
+WORKDIR /app
+# Cache and Install dependencies
+COPY package.json .
+RUN npm install --silent
+# Copy app files
+COPY src/* src/
+COPY tsconfig.json .
+COPY .env .
+EXPOSE 5000
+RUN npm install ts-node
+
+CMD ["npx", "ts-node", "src/index.ts"]
