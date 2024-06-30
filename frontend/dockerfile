@@ -1,0 +1,22 @@
+FROM node:latest
+# Add a work directory
+WORKDIR /app
+# Cache and Install dependencies
+COPY package.json .
+COPY yarn.lock .
+RUN yarn
+# Copy app files
+COPY public/* public/
+COPY src/* src/
+COPY src/assets/* src/assets/
+COPY tsconfig.json .
+COPY .eslintrc.cjs .
+COPY index.html .
+COPY tsconfig.app.json . 
+COPY tsconfig.json .
+COPY tsconfig.node.json .
+COPY vite.config.ts .
+# Expose port
+EXPOSE 3000
+# Start the app
+CMD [ "npx", "vite", "--port", "3000", "--host", "0.0.0.0"]
