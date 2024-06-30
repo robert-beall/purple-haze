@@ -2,6 +2,7 @@
 # Frontend
 - [Vite react-ts setup](https://vitejs.dev/guide/)
 - [Dockerize Reactapp](https://dev.to/karanpratapsingh/dockerize-your-react-app-4j2e)
+- [Add Routing](https://reactrouter.com/en/main/start/tutorial)
 # Backend
 - [TS Express Server Setup](https://blog.logrocket.com/how-to-set-up-node-typescript-express/)
 # Docker
