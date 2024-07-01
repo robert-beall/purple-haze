@@ -4,7 +4,7 @@ function Root() {
         <div className="app">
         <h1>Sidebar Stub</h1>
             <div>
-                STUB
+                <a href="/first">First Route</a>
             </div>
         </div>
       </>
