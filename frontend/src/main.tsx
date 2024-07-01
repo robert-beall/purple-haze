@@ -1,28 +1,35 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+import { Flowbite } from 'flowbite-react';
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Route,
+  Routes
 } from "react-router-dom";
-import Root from './routes/root';
-import App from './App';
+import ContentPage from './components/ContentPage';
 // import App from './App';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-  },
-  {
-    path: "/first",
-    element: <App />
+void (async () => {  
+  const root = document.getElementById('root');
+  
+  if (root === null || typeof root === 'undefined') {
+    console.error('Page cannot load');
+    return;
   }
-]);
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  
+  ReactDOM.createRoot(root).render(
+    <StrictMode>
+      <Flowbite>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<ContentPage />} >
+              <Route path="/first" element={<div>FIRST DAY!</div>} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Flowbite>
+    </StrictMode>,
+  )  
+})();
