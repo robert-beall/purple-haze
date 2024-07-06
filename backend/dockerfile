@@ -6,9 +6,7 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn --silent
 # Copy app files
-COPY src/* src/
-COPY tsconfig.json .
-COPY .env .
+COPY . .
 EXPOSE 5000
 RUN yarn build
 # RUN yarn build
