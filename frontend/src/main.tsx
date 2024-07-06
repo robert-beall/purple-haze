@@ -9,6 +9,7 @@ import {
   Routes
 } from "react-router-dom";
 import ContentPage from './components/ContentPage';
+import HelloPage from './pages/HelloPage';
 // import App from './App';
 
 void (async () => {  
@@ -26,6 +27,9 @@ void (async () => {
           <Routes>
             <Route path="/" element={<ContentPage />} >
               <Route path="/first" element={<div>FIRST DAY!</div>} />
+            </Route>
+            <Route path="/hello" element={<ContentPage />} >
+              <Route path="/hello" element={<HelloPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
