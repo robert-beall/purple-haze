@@ -6,7 +6,7 @@ const ContentPage: FC = (): JSX.Element => {
     return (
         <div className="flex">
             <div className="h-screen sticky top-0"><NavMap /></div>
-            <div className="">
+            <div className="w-full px-28 py-20">
                 <Outlet />
             </div> 
         </div>  
