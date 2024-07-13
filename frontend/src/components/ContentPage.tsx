@@ -1,8 +1,13 @@
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import NavMap from "./NavMap";
+import { isLoggedIn } from "../utils/AuthUtils";
 
 const ContentPage: FC = (): JSX.Element => {
+    if (!isLoggedIn()) {
+       return (<Navigate to="/login" />);
+    }
+
     return (
         <div className="flex">
             <div className="h-screen sticky top-0"><NavMap /></div>

@@ -13,7 +13,8 @@ const app: Express = express();
 const allowedOrigins = ['http://localhost:3000'];
 
 const options: cors.CorsOptions = {
-  origin: allowedOrigins
+  origin: allowedOrigins,
+  credentials: true,
 };
 
 app.use(cors(options));
