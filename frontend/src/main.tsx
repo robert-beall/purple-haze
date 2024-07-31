@@ -12,7 +12,6 @@ import ContentPage from './components/ContentPage';
 import HelloPage from './pages/HelloPage';
 import LoginForm from './components/LoginForm';
 import Logout from './components/Logout';
-// import App from './App';
 
 void (async () => {  
   const root = document.getElementById('root');

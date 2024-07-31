@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const LoginForm: FC = (): JSX.Element => {
     const navigate = useNavigate();
     
-    interface loginModel {
+    interface LoginModel {
         username: string,
         password: string,
     }
@@ -27,7 +27,7 @@ const LoginForm: FC = (): JSX.Element => {
         resolver: yupResolver(loginSchema),
     });
       
-    const onSubmit = (data: loginModel) => {
+    const onSubmit = (data: LoginModel) => {
         PurpleClient.post("/auth/login", data, {
             withCredentials: true, // This sends cookies along with the request
           }).then((res) => {
