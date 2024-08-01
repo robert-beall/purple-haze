@@ -1,0 +1,13 @@
+{
+  "name": "purple-haze",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/robert-beall/purple-haze.git",
+  "author": "rbeall@smcm.edu",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.45.3",
+    "@types/node": "^22.0.2"
+  },
+  "scripts": {}
+}
