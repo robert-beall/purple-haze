@@ -2,9 +2,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Label, TextInput } from "flowbite-react";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import PurpleClient from "../utils/PurpleClient";
-import { useNavigate } from "react-router-dom";
 
 const LoginForm: FC = (): JSX.Element => {
     const navigate = useNavigate();
