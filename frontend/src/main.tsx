@@ -12,6 +12,7 @@ import ContentPage from './components/ContentPage';
 import HelloPage from './pages/HelloPage';
 import LoginForm from './components/LoginForm';
 import Logout from './components/Logout';
+import PageTitle from './components/PageTitle';
 
 void (async () => {  
   const root = document.getElementById('root');
@@ -29,7 +30,7 @@ void (async () => {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/" element={<ContentPage />} >
-              <Route path="/first" element={<div>FIRST DAY!</div>} />
+              <Route path="/first" element={<><PageTitle title="First" /><div>FIRST DAY!</div></>} />
               <Route path="/hello" element={<HelloPage />} />
             </Route>
           </Routes>

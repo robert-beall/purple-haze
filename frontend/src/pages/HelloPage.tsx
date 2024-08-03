@@ -1,12 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import PurpleClient from "../utils/PurpleClient";
+import PageTitle from "../components/PageTitle";
 
 const HelloPage: FC = (): JSX.Element => {
     const [helloContent, setHelloContent] = useState('');
-
-    // const client = axios.create({
-    //     baseURL: 'http://backend:5000',
-    // });
 
     useEffect(() => {
         PurpleClient.get('hello')
@@ -18,9 +15,10 @@ const HelloPage: FC = (): JSX.Element => {
     });
 
     return (
-        <div>
-            {helloContent}
-        </div>  
+        <>
+            <PageTitle title="Hello" />
+            <div>{helloContent}</div>  
+        </>
     );
 }
 
