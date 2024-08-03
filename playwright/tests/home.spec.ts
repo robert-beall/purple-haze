@@ -2,6 +2,17 @@ import { expect, test } from '@playwright/test';
 import 'dotenv/config';
 
 /**
+ * Test page title
+ */
+test('Page Title', async ({page}) => {
+    // use page.goto to navigate to the correct page in the test browser
+    await page.goto('http://localhost:3000');
+
+    // Confirm page title
+    await expect(page).toHaveTitle('Purple Haze');
+});
+
+/**
  * Tests for page content.
  */
 test.describe(() => {
