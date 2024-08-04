@@ -1,9 +1,31 @@
 services:
+  database:
+   image: mysql:8.0.38
+   container_name: database
+   ports:
+     - "3306:3306"
+   env_file:
+    - ./database/.env
+   environment:
+    MYSQL_DATABASE: 'PurpleHazeDB'
+   healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   backend:
+    container_name: backend
     build: "backend"
     ports:
       - 5000:5000
+    depends_on: 
+      database: 
+        condition: service_healthy
   frontend:
+    container_name: frontend
     build: "frontend"
     ports:
       - 3000:3000
+    depends_on: 
+      backend: 
+        condition: service_started

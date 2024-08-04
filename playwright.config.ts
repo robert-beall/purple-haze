@@ -36,7 +36,7 @@ export default defineConfig({
     // Setup project
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
 
-    { name: 'auth', testMatch: 'auth.spec.ts' },
+    { name: 'login', testMatch: 'login.spec.ts' },
 
     {
       name: 'chromium',
@@ -45,7 +45,7 @@ export default defineConfig({
         // Use prepared auth state.
         storageState: './playwright/.auth/user.json',
       },
-      testIgnore: 'auth.spec.ts',
+      testIgnore: 'login.spec.ts',
       dependencies: ['setup'],
     },
 
