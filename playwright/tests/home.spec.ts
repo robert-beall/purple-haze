@@ -15,7 +15,7 @@ test('Page Title', async ({page}) => {
 /**
  * Tests for page content.
  */
-test.describe(() => {
+test.describe('Page Content', () => {
     /**
      * A simple test for testing the page heading.
      */

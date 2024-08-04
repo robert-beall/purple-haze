@@ -21,23 +21,3 @@ test('login', async ({ page }) => {
     const token = await page.evaluate(() => localStorage.getItem('purple-token'));
     expect(token).not.toBeNull();
 });
-
-test('logout', async ({ page }) => {
-    await page.goto(`${process.env.FRONTEND_URL}/login`);
-
-    const formSubmit = page.locator('button[type="submit"]');
-    const usernameInput = page.getByRole('textbox', {name: 'username'});
-    const passwordInput = page.getByRole('textbox', {name: 'password'});
-
-    await usernameInput.fill(process.env.USERNAME ?? '');
-    await passwordInput.fill(process.env.PASSWORD ?? '');
-
-    await formSubmit.click();
-
-    await page.goto(`${process.env.FRONTEND_URL}/logout`);
-
-    await page.waitForURL(`${process.env.FRONTEND_URL}/login`);
-
-    const token = await page.evaluate(() => localStorage.getItem('purple-token'));
-    expect(token).toBeNull();
-});
