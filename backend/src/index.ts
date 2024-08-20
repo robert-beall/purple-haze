@@ -1,8 +1,9 @@
+import bodyParser from "body-parser";
+import cors from 'cors';
 import dotenv from "dotenv";
 import express, { Express } from "express";
 import { routes } from './routes';
-import bodyParser from "body-parser";
-import cors from 'cors';
+import { initializeDB } from "./sequelize";
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ const port = process.env.PORT ?? 3000;
 
 app.use('/', routes);
 
-app.listen(port, () => {
+app.listen(port, async () => {
+  await initializeDB();
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
