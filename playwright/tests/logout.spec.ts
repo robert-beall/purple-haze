@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import 'dotenv/config';
 
 test('logout', async ({ page }) => {
-    await page.goto(`${process.env.FRONTEND_URL}`);
+    await page.goto('/');
 
     let token = await page.evaluate(() => localStorage.getItem('purple-token'));
     expect(token).not.toBeNull();

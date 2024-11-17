@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import 'dotenv/config';
 
 test('login', async ({ page }) => {
-    await page.goto(`${process.env.FRONTEND_URL}/login`);
+    await page.goto('/login');
 
     const formSubmit = page.locator('button[type="submit"]');
     const usernameInput = page.getByRole('textbox', {name: 'username'});

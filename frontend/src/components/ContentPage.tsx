@@ -26,7 +26,7 @@ const ContentPage: FC = (): JSX.Element => {
                 <div className="h-screen sticky top-0">
                     <NavMap />
                 </div>
-                <div className="h-screen justify-center items-center w-full text-center mt-32 mx-12">
+                <div className="h-screen justify-center items-center w-full text-center mt-20 mx-12">
                     { isRoot ? <HomePage /> : <Outlet />}
                 </div> 
             </div>      

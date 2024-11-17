@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@faker-js/faker@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-9.2.0.tgz#269ee3a5d2442e88e10d984e106028422bcb9551"
+  integrity sha512-ulqQu4KMr1/sTFIYvqSdegHT8NIkt66tFAkugGnHA+1WAfEn6hMzNR+svjXGFRVLnapxvej67Z/LwchFrnLBUg==
+
 "@playwright/test@^1.45.3":
   version "1.45.3"
   resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.45.3.tgz#22e9c38b3081d6674b28c6e22f784087776c72e5"

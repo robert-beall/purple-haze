@@ -7,6 +7,7 @@ interface Component {
 }
 
 interface Props {
+    id: string;
     component: Component;
     isOpen: boolean; 
     setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -21,8 +22,7 @@ export interface ModalInfo {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const LazyModal: FC<Props> = ({component, isOpen, setIsOpen, title, onClose}: Props): JSX.Element => {
-    // const [open, setOpen] = useState(false);
+const LazyModal: FC<Props> = ({id, component, isOpen, setIsOpen, title, onClose}: Props): JSX.Element => {
     const [isLoading, setIsLoading] = useState(true);
 
     const closeProcedure = (): void => {
@@ -36,6 +36,7 @@ const LazyModal: FC<Props> = ({component, isOpen, setIsOpen, title, onClose}: Pr
     const Comp = lazy(component.importer);
     return (
         <Modal
+            id={id}
             position="top-center"
             show={isOpen}
             onClose={closeProcedure}

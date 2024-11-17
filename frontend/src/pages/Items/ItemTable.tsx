@@ -20,8 +20,7 @@ const ItemTable: FC = (): JSX.Element => {
     const [showEdit, setShowEdit] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
-    const [editId, setEditId] = useState(NaN);
-    const [deleteId, setDeleteId] = useState(NaN);
+    const [focusItem, setFocusItem] = useState<ItemModel>();
 
     const filters: DataTableFilterMeta = {
         'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -58,6 +57,7 @@ const ItemTable: FC = (): JSX.Element => {
         <>
             <ToastContainer />
             <LazyModal
+                id="AddModal"
                 component={{
                         importer: () => import('./ItemForm'),
                         props: {onSuccess: resetLoading}
@@ -67,25 +67,28 @@ const ItemTable: FC = (): JSX.Element => {
                 title="Add Item"
             />
             <LazyModal
+                id="EditModal"
                 component={{
                         importer: () => import('./ItemForm'),
-                        props: {id: editId, onSuccess: resetLoading}
+                        props: {id: focusItem?.id, onSuccess: resetLoading}
                 }}
                 isOpen={showEdit}
                 setIsOpen={setShowEdit}
-                title="Edit Item"
+                title={`Edit Item ${focusItem?.name}`}
             />
             <LazyModal
+                id="DeleteModal"
                 component={{
                         importer: () => import('./ItemDelete'),
-                        props: {id: deleteId, onSuccess: resetLoading}
+                        props: {id: focusItem?.id, onSuccess: resetLoading}
                 }}
                 isOpen={showDelete}
                 setIsOpen={setShowDelete}
-                title="Delete Item"
+                title={`Delete Item`}
             />
-            <h1 className="text-purple-800 text-4xl text-left mb-2">Items</h1>
+            <h1 data-testid='page-heading' className="text-purple-800 text-4xl text-left mb-2">Items</h1>
             <DataTable 
+                data-testid="datatable"
                 header={
                     <Button 
                         color="purple" 
@@ -117,13 +120,13 @@ const ItemTable: FC = (): JSX.Element => {
                                 >
                             <Dropdown.Item onClick={() => {
                                 setShowEdit(true);
-                                setEditId(data.id);
+                                setFocusItem(data);
                             }}>
                                 Edit
                             </Dropdown.Item>
                             <Dropdown.Item onClick={() => {
                                 setShowDelete(true);
-                                setDeleteId(data.id);
+                                setFocusItem(data);
                             }}>
                                 Delete
                             </Dropdown.Item>

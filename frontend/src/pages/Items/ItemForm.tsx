@@ -77,7 +77,7 @@ const ItemForm: FC<Props> = ({id, modal, onSuccess}: Props): JSX.Element => {
         Request.then(() => {
             const action = typeof id === 'undefined' ? 'added' : 'updated';
             
-            toast.success(`Item ${typeof id !== 'undefined' ? id + ' ' : ''}has been ${action}`, {position: 'top-center'});
+            toast.success(`Item ${data.name} has been ${action}`, {position: 'top-center'});
 
             if (typeof onSuccess !== 'undefined') {
                 onSuccess();
@@ -112,7 +112,7 @@ const ItemForm: FC<Props> = ({id, modal, onSuccess}: Props): JSX.Element => {
                             Category
                             <Select {...register('category')} title="Category" >
                                 {categoryOptions.map(o => {
-                                    return (<option id={o} value={o}>{o}</option>)
+                                    return (<option key={o} id={o} value={o}>{o}</option>)
                                 })}
                             </Select>
                             <p className="text-red-500">{errors.category?.message}</p>

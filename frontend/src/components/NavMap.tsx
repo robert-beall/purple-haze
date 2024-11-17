@@ -1,4 +1,4 @@
-import { IconCaretDown, IconCaretRight, IconCircle1, IconHandMove, IconHome, IconLogout, IconShoppingBag } from '@tabler/icons-react';
+import { IconCaretDown, IconCaretRight, IconCircle1, IconHandMove, IconHome, IconLock, IconLogout, IconShoppingBag } from '@tabler/icons-react';
 import { Button, FlowbiteTheme, Sidebar } from "flowbite-react";
 import { FC, useState } from "react";
 
@@ -101,8 +101,11 @@ const NavMap: FC = (): JSX.Element => {
                     {!isRoot && <Sidebar.Item href="/" icon={IconHome}>
                         Home
                     </Sidebar.Item>}
-                    <Sidebar.Item href="/first" icon={IconCircle1}>
-                        First
+                    <Sidebar.Item href="/actions" icon={IconCircle1}>
+                        Actions
+                    </Sidebar.Item>
+                    <Sidebar.Item href="/isolation" icon={IconLock}>
+                        Isolation
                     </Sidebar.Item>
                     <Sidebar.Item href="/hello" icon={IconHandMove}>
                         Hello

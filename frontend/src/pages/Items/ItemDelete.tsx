@@ -5,16 +5,17 @@ import PurpleClient from "../../utils/PurpleClient";
 import { toast } from "react-toastify";
 
 interface Props {
-    id?: number;
+    id: number;
+    name: string;
     modal: ModalInfo;
     onSuccess?: () => void;
 }
 
-const ItemDelete: FC<Props> = ({id, modal, onSuccess}: Props): JSX.Element => {
+const ItemDelete: FC<Props> = ({id, name, modal, onSuccess}: Props): JSX.Element => {
     const onClick = async () => {
         PurpleClient.delete(`/items/${id}`)
             .then(() => {
-                toast.success(`item ${id} has been deleted`, {position: 'top-center'});
+                toast.success(`item ${name} has been deleted`, {position: 'top-center'});
 
                 if (typeof onSuccess !== 'undefined') {
                     onSuccess();
@@ -28,7 +29,7 @@ const ItemDelete: FC<Props> = ({id, modal, onSuccess}: Props): JSX.Element => {
     return (
         <>
             <div className="text-xl mb-2">
-                Do you want to delete item {id}?
+                Do you want to delete item <span className="text-purple-900 font-bold">{name}</span>?
             </div>
             <div className="w-100 float-right">
                 <Button type="reset" color="dark" className="inline-block mr-4" onClick={() => modal.close()}>Cancel</Button>
