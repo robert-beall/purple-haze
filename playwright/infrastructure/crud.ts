@@ -44,7 +44,8 @@ const addProcedure = async (name: string, obj: Record<string, any>, page: Page, 
 
     await submit.click();
 
-    await page.waitForResponse(addUrl);
+    const response = await page.waitForResponse(addUrl);
+    expect(response.status()).toBe(201);
 }
 
 const filterRecordByIdField = async (name: string, obj: Record<string, any>, page: Page) => {
@@ -80,7 +81,8 @@ const editProcedure = async (name: string, obj: Record<string, any>, page: Page,
 
     await submit.click();
 
-    await page.waitForResponse(editUrl);
+   const response = await page.waitForResponse(editUrl);
+   expect(response.status()).toBe(200);
 }
 
 const deleteProcedure = async (name: string, page: Page, editUrl: string | RegExp) => {
@@ -92,7 +94,8 @@ const deleteProcedure = async (name: string, page: Page, editUrl: string | RegEx
 
     await page.getByTestId(`${name}-delete-submit`).click();
 
-    await page.waitForResponse(editUrl);
+    const response = await page.waitForResponse(editUrl);
+    expect(response.status()).toBe(204);
 };
 
 export const runCrud = async ({
