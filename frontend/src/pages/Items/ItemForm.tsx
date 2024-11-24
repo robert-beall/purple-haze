@@ -91,26 +91,26 @@ const ItemForm: FC<Props> = ({id, modal, onSuccess}: Props): JSX.Element => {
     return (
         <div className="flex">
             <div className="w-full">
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} data-testid="item-form">
                     <div className="grid-cols-1">
                         <Label>
                             Name
-                            <TextInput {...register("name")} title="Name"/>
+                            <TextInput {...register("name")} title="Name" data-testid="name-input" />
                             <p className="text-red-500">{errors.name?.message}</p>
                         </Label>
                         <Label>
                             Cost
-                            <TextInput {...register('cost')} title="Cost" type="number" step=".01"/>
+                            <TextInput {...register('cost')} title="Cost" type="number" data-testid="cost-input" step=".01"/>
                             <p className="text-red-500">{errors.cost?.message}</p>
                         </Label>
                         <Label>
                             Weight
-                            <TextInput {...register('weight')} title="Weight" type="number" step=".001" />
+                            <TextInput {...register('weight')} title="Weight" type="number" data-testid="weight-input" step=".001" />
                             <p className="text-red-500">{errors.weight?.message}</p>
                         </Label>
                         <Label>
                             Category
-                            <Select {...register('category')} title="Category" >
+                            <Select {...register('category')} title="Category" data-testid="category-input" >
                                 {categoryOptions.map(o => {
                                     return (<option key={o} id={o} value={o}>{o}</option>)
                                 })}

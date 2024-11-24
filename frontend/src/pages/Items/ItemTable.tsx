@@ -88,9 +88,12 @@ const ItemTable: FC = (): JSX.Element => {
             />
             <h1 data-testid='page-heading' className="text-purple-800 text-4xl text-left mb-2">Items</h1>
             <DataTable 
-                data-testid="datatable"
+                pt={{
+                    table: { "data-testid": "datatable" },
+                }}
                 header={
                     <Button 
+                        data-testid='item-add'
                         color="purple" 
                         onClick={() => {
                             setShowAdd(true);
@@ -114,20 +117,26 @@ const ItemTable: FC = (): JSX.Element => {
                 <Column 
                     body={(data) => {
                         return (<Dropdown color="purple"
-                                    data-testid={data.id} 
+                                    data-testid={data.name} 
                                     label={<IconSettings />}
                                     dismissOnClick={false}
                                 >
-                            <Dropdown.Item onClick={() => {
-                                setShowEdit(true);
-                                setFocusItem(data);
-                            }}>
+                            <Dropdown.Item 
+                                data-testid={`item-edit-${data.name}`}
+                                onClick={() => {
+                                    setShowEdit(true);
+                                    setFocusItem(data);
+                                }}
+                            >
                                 Edit
                             </Dropdown.Item>
-                            <Dropdown.Item onClick={() => {
-                                setShowDelete(true);
-                                setFocusItem(data);
-                            }}>
+                            <Dropdown.Item 
+                                data-testid={`item-delete-${data.name}`}
+                                onClick={() => {
+                                    setShowDelete(true);
+                                    setFocusItem(data);
+                                }}
+                            >
                                 Delete
                             </Dropdown.Item>
                         </Dropdown>)
@@ -141,6 +150,9 @@ const ItemTable: FC = (): JSX.Element => {
                     sortable 
                     filter 
                     filterPlaceholder="ID" 
+                    pt={{
+                        filterInput: { "data-testid": "id-filter" },
+                    }}
                 />
                 <Column 
                     field="name" 
@@ -148,6 +160,9 @@ const ItemTable: FC = (): JSX.Element => {
                     sortable
                     filter
                     filterPlaceholder="Name"
+                    pt={{
+                        filterInput: { "data-testid": "name-filter" },
+                    }}
                 />
                 <Column 
                     field="cost" 
@@ -155,6 +170,9 @@ const ItemTable: FC = (): JSX.Element => {
                     sortable
                     filter
                     filterPlaceholder="Cost"
+                    pt={{
+                        filterInput: { "data-testid": "cost-filter" },
+                    }}
                 />
                 <Column 
                     field="weight" 
@@ -162,6 +180,9 @@ const ItemTable: FC = (): JSX.Element => {
                     sortable
                     filter
                     filterPlaceholder="Weight"
+                    pt={{
+                        filterInput: { "data-testid": "weight-filter" },
+                    }}
                 />
                 <Column 
                     field="category" 
@@ -169,6 +190,9 @@ const ItemTable: FC = (): JSX.Element => {
                     sortable 
                     filter
                     filterPlaceholder="Category"
+                    pt={{
+                        filterInput: { "data-testid": "category-filter" },
+                    }}
                 />
             </DataTable>
         </>

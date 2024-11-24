@@ -33,7 +33,7 @@ const ItemDelete: FC<Props> = ({id, name, modal, onSuccess}: Props): JSX.Element
             </div>
             <div className="w-100 float-right">
                 <Button type="reset" color="dark" className="inline-block mr-4" onClick={() => modal.close()}>Cancel</Button>
-                <Button type="button" color="purple" className="inline-block" onClick={onClick}>Delete</Button>
+                <Button type="button" color="purple" className="inline-block" onClick={onClick} data-testid="item-delete-submit">Delete</Button>
             </div>
         </>
        
