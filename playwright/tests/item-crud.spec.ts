@@ -80,7 +80,7 @@ test('edit', async ({ page }) => {
     await rowButton.click();
 
     // click add button and ensure form is visible
-    await page.getByTestId(/item-edit-.*/).click();
+    await page.getByTestId(`item-edit-${obj.name}`).click();
     const form = page.getByTestId('item-form');
     expect(form).toBeVisible();
     await page.waitForTimeout(100);
